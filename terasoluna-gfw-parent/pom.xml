@@ -193,6 +193,15 @@
             </dependency>
             <!-- == End Spring IO Platform == -->
 
+	        <!-- == Begin Spring == -->
+	        <!-- Spring Data -->
+	        <dependency>
+	            <groupId>org.springframework.data</groupId>
+	            <artifactId>spring-data-jpa</artifactId>
+	            <version>${org.springframework.data.spring-data-jpa.version}</version>
+	        </dependency>
+	        <!-- == End Spring == -->
+	        
             <!-- == Begin MyBatis == -->
             <dependency>
                 <groupId>org.mybatis</groupId>
@@ -420,6 +429,8 @@
         <jboss-logging-annotations.version>1.2.0.Final</jboss-logging-annotations.version>
         <!-- == Logging == -->
         <org.lazyluke.version>0.2.7</org.lazyluke.version>
+        <!-- == Spring == -->
+        <org.springframework.data.spring-data-jpa.version>1.9.6.RELEASE</org.springframework.data.spring-data-jpa.version>
         <!-- == Project Properties == -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <archetype.test.skip>true</archetype.test.skip>
