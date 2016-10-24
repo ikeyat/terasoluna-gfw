@@ -425,6 +425,11 @@
             <!-- Spring Data -->
             <dependency>
                 <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-commons</artifactId>
+                <version>${org.springframework.data.spring-data-commons.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-jpa</artifactId>
                 <version>${org.springframework.data.spring-data-jpa.version}</version>
             </dependency>
@@ -575,6 +580,7 @@
         <!-- == Logging == -->
         <org.lazyluke.version>0.2.7</org.lazyluke.version>
         <!-- == Spring == -->
+        <org.springframework.data.spring-data-commons.version>1.11.6.RELEASE</org.springframework.data.spring-data-commons.version>
         <org.springframework.data.spring-data-jpa.version>1.9.6.RELEASE</org.springframework.data.spring-data-jpa.version>
         <!-- == JUnit == -->
         <selenium.version>2.46.0</selenium.version>
