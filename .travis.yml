@@ -15,4 +15,24 @@ script:
   - mvn xml:check-format -P xml-check-format
   - mvn formatter:validate -P common-libs
   - mvn -U clean install
-  - mvn -U -P common-libs jacoco:report coveralls:report
+#  - mvn -U -P common-libs jacoco:report coveralls:report
+
+
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "xm4EVo39GXuuLU3nCtrn2H6UoHJWvRSTk5nCF1U9/rSPnisFmkRucwN8gk1lFfU9ECkVD8hMfSdaAXMwA0WIV05Q8KoRlXKcc8yOojcBMdtno91QdMcPhFZ0FgjL6sD0kIbMVSfmVINkqRhrZJTfDVjLuv/2jh+xqgrn7x/apaLgN0PUzoABP6i5t6yGgNHwbLqIpR7bHo5tOdY6ozYW1PjnwpBUJpmfUi6RQxtlJ8Qq6yoxxVSgGZ4SZoGOKUVhy5i1UDbZ7cjDWM3wTOLQrIwFYtG/j5les0XyvecALT1Qh9rrPtZN3MpnLh4wyhx9TuTK8FSxDnz6amNCM2Qj6cO9PFLIQ6bGBHoZN6kfRcv9pu4IVUV/cLQF/L6cI7O/4u9+nofp7xov8AZ6R5UbhrcGS1Rrj2t75exCahaDsSXYXY/Msv/JVYAnykiqsxb8/1gBX9itogK+67WAHJaoIaLAMkUAw72WkbLsjmTveqwt0PL3ZxJBFdgPN4K/82A1vtQP7qZrJzfHttOo3A+y/+e86d7wERSlcPIG6Js2OKETcgQTwlwZnaSGWI22AohTbyfkKyyk95XMcB79oipr7brKa3sQL52sbRiNMRSzB61sGmMAk5E5xlRIlnz1zY844BA8wf3sBDjpfLnQWv4GmAKqTrZbpghli6OCdg8gONM="
+
+before_install:
+      - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+
+addons:
+  coverity_scan:
+    project:
+      name: "ikeyat/terasoluna-gfw"
+      description: "Build submitted via Travis CI"
+    notification_email: tm.ikeya@gmail.com
+    build_command_prepend: "mvn clean"
+    build_command:   "mvn -DskipTests=true compile"
+    branch_pattern: coverity_scan
