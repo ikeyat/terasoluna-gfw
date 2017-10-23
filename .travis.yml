@@ -1,4 +1,4 @@
-dist: trusty
+dist: xenial
 language: java
 jdk:
   - oraclejdk8
@@ -34,7 +34,7 @@ addons:
       - camlp4-extra
 
 before_install:
-  - opam init
+  - yes | opam init
     # Checkout Infer
   - git clone https://github.com/facebook/infer.git
   - cd infer
