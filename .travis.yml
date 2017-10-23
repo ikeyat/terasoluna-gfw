@@ -52,4 +52,4 @@ script:
 #  - mvn formatter:validate -P common-libs
 #  - mvn -U clean install
 #  - mvn -U -P common-libs jacoco:report coveralls:report
-  - infer --racerd-only -- mvn -U clean install
+  - infer --racerd-only -- mvn -U -P common-libs clean install -DskipTests
