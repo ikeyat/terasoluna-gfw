@@ -30,13 +30,12 @@ addons:
       - zlib1g-dev
 
 before_install:
-  - pushd
   - curl -kL https://raw.github.com/hcarty/ocamlbrew/master/ocamlbrew-install | env OCAMLBREW_FLAGS="-r" bash
   - source ~/ocamlbrew/ocaml-*/etc/ocamlbrew.bashrc
   - yes | opam init
     # Checkout Infer
   - git clone https://github.com/facebook/infer.git
-  - cd infer
+  - pushd infer
   # Compile Infer
   - ./build-infer.sh java
   # Install Infer into your PATH
