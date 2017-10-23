@@ -29,6 +29,9 @@ addons:
       - unzip
       - zlib1g-dev
       - opam
+      - ocaml
+      - ocaml-native-compilers
+      - camlp4-extra
 
 before_install:
   - opam init
