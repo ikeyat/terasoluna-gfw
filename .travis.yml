@@ -48,8 +48,8 @@ before_install:
 
 
 script:
-  - mvn xml:check-format -P xml-check-format
-  - mvn formatter:validate -P common-libs
+#  - mvn xml:check-format -P xml-check-format
+#  - mvn formatter:validate -P common-libs
 #  - mvn -U clean install
 #  - mvn -U -P common-libs jacoco:report coveralls:report
   - infer --racerd-only -- mvn -U clean install
