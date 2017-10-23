@@ -28,6 +28,7 @@ addons:
       - python-software-properties
       - unzip
       - zlib1g-dev
+      - opam
 
 before_install:
     # Checkout Infer
