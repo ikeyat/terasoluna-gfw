@@ -11,6 +11,11 @@ cache:
 
 install: true
 
+before_install:
+  - wget -O Dockerfile https://raw.githubusercontent.com/facebook/infer/master/docker/Dockerfile
+  - wget -O run.sh https://raw.githubusercontent.com/facebook/infer/master/docker/run.sh
+  - sh run.sh
+
 script:
   - mvn xml:check-format -P xml-check-format
   - mvn formatter:validate -P common-libs
