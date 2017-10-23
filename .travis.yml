@@ -1,3 +1,4 @@
+sudo: required
 dist: trusty
 language: java
 jdk:
@@ -40,7 +41,7 @@ before_install:
   - cd infer
   # Compile Infer
   - ./build-infer.sh java
-  - make install
+  - sudo make install
   # Remve example to avoid maven build error
   - popd
   - rm -Rf temp
