@@ -12,9 +12,29 @@ cache:
 install: true
 
 before_install:
-  - wget -O Dockerfile https://raw.githubusercontent.com/facebook/infer/master/docker/Dockerfile
-  - wget -O run.sh https://raw.githubusercontent.com/facebook/infer/master/docker/run.sh
-  - sh run.sh
+  - sudo apt-get install -y \
+    autoconf \
+    automake \
+    build-essential \
+    git \
+    libgmp-dev \
+    libmpc-dev \
+    libmpfr-dev \
+    libsqlite3-dev \
+    m4 \
+    openjdk-7-jdk \
+    pkg-config \
+    python-software-properties \
+    unzip \
+    zlib1g-dev
+  # Checkout Infer
+  - git clone https://github.com/facebook/infer.git
+  - cd infer
+  # Compile Infer
+  - ./build-infer.sh java
+  # Install Infer into your PATH
+  - export PATH=`pwd`/infer/bin:$PATH
+
 
 script:
   - mvn xml:check-format -P xml-check-format
