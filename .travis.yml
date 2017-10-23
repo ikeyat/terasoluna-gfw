@@ -1,4 +1,4 @@
-dist: xenial
+dist: trusty
 language: java
 jdk:
   - oraclejdk8
@@ -28,12 +28,9 @@ addons:
       - python-software-properties
       - unzip
       - zlib1g-dev
-      - opam
-      - ocaml
-      - ocaml-native-compilers
-      - camlp4-extra
 
 before_install:
+  - curl -kL https://raw.github.com/hcarty/ocamlbrew/master/ocamlbrew-install | env OCAMLBREW_FLAGS="-r" bash
   - yes | opam init
     # Checkout Infer
   - git clone https://github.com/facebook/infer.git
